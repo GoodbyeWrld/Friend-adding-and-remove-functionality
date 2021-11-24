@@ -5,6 +5,8 @@
 
 void FriendsList::addfriend(std::string nme, std::string exc_nme)
 {
+    
+    
     if (nme != exc_nme)
     {
         Friendd *newFriend;
@@ -18,6 +20,7 @@ void FriendsList::addfriend(std::string nme, std::string exc_nme)
         if (!head)
         {
             head = newFriend;
+            FriendsList::count_of_friends++;
         
         }
         else
@@ -30,17 +33,23 @@ void FriendsList::addfriend(std::string nme, std::string exc_nme)
             }
 
             Friendptr->next = newFriend;
+            FriendsList::count_of_friends++;
             
         }
+        return;
+    }
+    else
+    {
+        std::cout << FriendsList::excludename<< ": Is the name of the current user whose friendlist you are in currently in....excluding"<<std::endl;
         
     }
-    else return;// need to figure out to return if a bad value( user's name) is passed to add friend fucntion 
+    return; //need to figure out to return if a bad value( user's name) is passed to add friend fucntion 
 
 
 };
 
 
-std::string FriendsList::removeFriend(std::string)
+std::string FriendsList::removeFriend(std::string) /* think I want to do the functions for removing  current name from removed obj's  friends*/
 {
 
 
