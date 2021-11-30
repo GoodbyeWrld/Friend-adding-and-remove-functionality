@@ -79,7 +79,8 @@ std::string FriendsList::removeFriend(Friendd::Friendd **head,std::string name) 
     
 
 
-}; 
+};
+
 
 
 
