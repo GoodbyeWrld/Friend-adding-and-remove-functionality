@@ -29,15 +29,17 @@ class FriendsList
     Friendd::Friendd *head; 
     
     public:
+    FriendsList();
     FriendsList(std::string P)
     {
         excludename = P; //name of the person whose friends list this call belongs to
         head = nullptr;
-    }
+    };
+    
     ~FriendsList();
-    std::string removeFriend(std::string); // remove the name that is passed and return exluded
-    void addfriend(std::string, std::string);// pass the friend to be added and the persons name to be skipped
-    void displayfriendslist(std::string); // Print linkedList
+    std::string removeFriend(Friendd **head, std::string nm); // remove the name that is passed and return exluded
+    void addfriend(std::string);// pass the friend to be added and the persons name to be skipped
+    void displayfriendslist(Friendd *head); // Print linkedList
 
 };
 #endif

@@ -3,6 +3,13 @@
 
 
 //defs
+Person::Person(std::string nme)
+{
+
+
+};
+
+
 
 std::string Person::removefriend(std::string nme)
 {
@@ -12,7 +19,4 @@ std::string Person::removefriend(std::string nme)
 
 };  
 
-void addfriend(std::string exc, std::string nme)
-{
 
-};

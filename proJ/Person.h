@@ -14,9 +14,14 @@ private:
     FriendsList FriendsList(Person::Person name); // pass friends list the name of the user
     FriendsList::Friendd *head; //<--trying to make this the pointer to the friendlist
 public:
-Person(std::string);
+Person();
+Person(std::string nme) 
+{
+    name = nme;
+};
 ~Person();
-
+std::string getnameP()
+    { return name;};
 std::string removefriend(std::string nm);//remove friend from with Person
 FriendsList::FriendsList displayList(); // call print from within Person
 FriendsList::FriendsList addfriend(); // add friend from within Person

@@ -3,9 +3,9 @@
 
 
 
-void FriendsList::addfriend(std::string nme, std::string exc_nme)
+void FriendsList::addfriend(std::string nme)
 {
-    
+    std::string exc_nme= FriendsList::excludename;
     
     if (nme != exc_nme)
     {
@@ -40,7 +40,7 @@ void FriendsList::addfriend(std::string nme, std::string exc_nme)
     }
     else
     {
-        std::cout << FriendsList::excludename<< ": Is the name of the current user whose friendlist you are in currently in....excluding"<<std::endl;
+        std::cout << FriendsList::excludename<< ": Is the name of the current user whose you are trying to remove frinds from currently....excluding"<<std::endl;
         
     }
     return; //need to figure out to return if a bad value( user's name) is passed to add friend fucntion 
@@ -49,20 +49,49 @@ void FriendsList::addfriend(std::string nme, std::string exc_nme)
 };
 
 
-std::string FriendsList::removeFriend(std::string) /* think I want to do the functions for removing  current name from removed obj's  friends*/
+std::string FriendsList::removeFriend(Friendd::Friendd **head,std::string name) /* think I want to do the functions for removing current name from removed obj's  friends*/
 {
+
+    Friendd::Friendd *temp =  *head; // both pointing to head / saving head 
+    Friendd::Friendd *prev = NULL;
+    if (temp != NULL && temp->name==name)
+    {
+        std::string inversedelte;
+        *head= temp->next;
+        inversedelte=temp->name;
+        delete temp;
+        return inversedelte;
+
+    }
+    while (temp != NULL && temp->name !=name)
+    {
+        prev=temp;
+        temp=temp->next;
+        
+    }
+
+    if (temp->next == NULL)
+    {
+       std::cout<<"This user only has one friend deleting it would terminate linked list"<<std::endl;
+       return; 
+    }
+   
+    
 
 
 }; 
 
 
 
-
-
-
-
-void FriendsList::displayfriendslist(std::string)
+void FriendsList::displayfriendslist(Friendd::Friendd *head)
 {
-
+    int count = 0;
+    while (head != NULL)
+    {
+        count++;
+        std::cout<<"Name "<< count <<": "<<head->name<<std::endl;
+        head = head->next;
+        
+    }
 
 }; 
